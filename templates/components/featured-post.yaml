@@ -1,0 +1,4 @@
+title: Featured post
+renderType: freemarker
+templateScript: /massively/templates/components/featured-post.ftl
+dialog: massively:components/featured-post

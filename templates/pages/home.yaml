@@ -1,0 +1,14 @@
+title: Página de inicio
+templateScript: /massively/templates/pages/home.ftl
+renderType: freemarker
+dialog: massively:pages/home
+visible: true
+
+areas:
+  main:
+    renderType: freemarker
+    type: single
+    availableComponents: 
+      featured-post:
+        id: massively:components/featured-post
+    optional: false
