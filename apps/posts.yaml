@@ -1,0 +1,61 @@
+!content-type:post
+name: posts
+label: Blog
+icon: icon-content-app
+
+subApps:
+  browser:
+    workbench:
+      contentViews:
+        - name: tree
+          class: info.magnolia.ui.workbench.tree.TreePresenterDefinition
+          columns: &myColumns
+            - name: jcrName
+              editable: true
+              sortable: true
+              width: 150
+              propertyName: jcrName
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: title
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: date
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+              formatterClass: info.magnolia.ui.workbench.column.DateColumnFormatter
+              type: date
+              width: 150
+            - name: featured
+              width: 45
+              class: info.magnolia.ui.workbench.column.definition.BooleanPropertyColumnDefinition
+            - name: status
+              width: 45
+              displayInChooseDialog: false
+              formatterClass: info.magnolia.ui.workbench.column.StatusColumnFormatter
+              class: info.magnolia.ui.workbench.column.definition.StatusColumnDefinition
+            - name: moddate
+              width: 160
+              sortable: true
+              displayInChooseDialog: false
+              formatterClass: info.magnolia.ui.workbench.column.DateColumnFormatter
+              propertyName: mgnl:lastModified
+              class: info.magnolia.ui.workbench.column.definition.MetaDataColumnDefinition
+        - name: list
+          class: info.magnolia.ui.workbench.list.ListPresenterDefinition
+          columns: *myColumns
+        - name: search
+          class: info.magnolia.ui.workbench.search.SearchPresenterDefinition
+          columns: *myColumns
+
+
+
+
+  detail:
+    editor:
+      form:
+        tabs:
+          default:
+            name: postDetail
+            fields:
+            - name: date
+              fieldType: date
+              defaultValue: now
+              time: true

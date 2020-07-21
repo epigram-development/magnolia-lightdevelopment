@@ -1,0 +1,35 @@
+# Automatically generated contentType demonstrates usage of the common properties.
+# Modify them to match your requirements.
+datasource:
+    workspace: posts
+    namespaces:
+      epi: https://eoigram.tech/jcr/1.0/epi
+    autoCreate: true
+
+model:
+    # Optionally supply a specific nodetype, otherwise 'mgnl:content' will be used.
+    nodeType: epi:post
+    properties:
+    - name: title
+      required: true
+      type: String
+      i18n: true
+    - name: date
+      type: Date
+      required: true
+    - name: body
+      type: richText
+      required: true
+      i18n: true
+    - name: image
+      type: asset
+    - name: featured
+      type: Boolean
+    - name: author
+      type: Author
+
+    subModels:
+    - name: Author
+      properties:
+      - name: authorName        
+      - name: email
