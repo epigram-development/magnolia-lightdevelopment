@@ -1,0 +1,28 @@
+# Automatically generated contentType demonstrates usage of the common properties.
+# Modify them to match your requirements.
+datasource:
+    workspace: posts
+    namespaces:
+      epi: https://epigram.tech/jcr/1.0/epi
+    autoCreate: true
+
+model:
+    nodeType: epi:posts
+    properties:
+    - name: title
+      required: true
+      i18n: true
+    - name: date
+      type: Date 
+      required: true
+    - name: image
+      type: asset
+    - name: caption
+    - name: body
+      type: richText
+      required: true
+      i18n: true
+    - name: featured
+      type: Boolean
+      default: false
+

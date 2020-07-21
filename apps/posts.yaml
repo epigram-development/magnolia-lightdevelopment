@@ -1,0 +1,73 @@
+!content-type:posts
+name: posts
+
+
+# Tailor the configuration of the default (raw) app generated to meet the design requirements.
+icon: icon-content-app
+subApps:
+  browser:
+    workbench:
+      contentViews:
+        - name: tree
+          class: info.magnolia.ui.workbench.tree.TreePresenterDefinition
+          sortable: false
+          columns: &columns
+            - name: jcrName
+              label: name
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+              nodeTypeToIcon:
+                epi:posts: icon-content-app
+                mgnl:content: icon-folder
+              width: 250
+            - name: title
+              label: title              
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: status
+              label: status              
+              class: info.magnolia.ui.workbench.column.definition.StatusColumnDefinition
+              width: 50
+            - name: featured
+              label: featured              
+              class: info.magnolia.ui.workbench.column.definition.BooleanPropertyColumnDefinition
+              width: 50
+            - name: date              
+              label: date              
+              type: date
+              sortable: true
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+              formatterClass: info.magnolia.ui.workbench.column.DateColumnFormatter              
+              width: 150
+        - name: list
+          class: info.magnolia.ui.workbench.list.ListPresenterDefinition
+          columns: *columns
+        - name: search
+          class: info.magnolia.ui.workbench.search.SearchPresenterDefinition
+          columns: *columns
+
+  detail:
+    editor:
+      form:
+        tabs:
+          default:
+            name: postDetailsTab    # Name the "default" tab created as "postDetailsTab".
+            fields:
+              date:
+                fieldType: date                
+                time: true
+                defaultValue: now
+              body:
+                rows: 10
+              featured:
+                fieldType: checkbox
+                
+# Optionally override any of the app configuration supplied by the content type.
+# subApps:
+#   detail:
+#     editor:
+#       form:
+#         tabs:
+#           default:
+#
+#             fields:
+#               - name: title
+#                 rows: 5
